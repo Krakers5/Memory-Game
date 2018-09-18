@@ -1,0 +1,217 @@
+
+
+/* ---------- Reset --------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* ---------- Container --------*/
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- Main board --------*/
+
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10px;
+
+  .board {
+    border: 3px solid black;
+    width: 900px;
+    height: 630px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    margin-top: 10px;
+
+    .field {
+      min-width: 140px;
+      height: 100px;
+      background: white;
+      position: relative;
+      transition: all 0.4s linear;
+      transform-style: preserve-3d;
+
+    }
+
+  }
+}
+
+/* ---------- Flip --------*/
+
+.selected {
+  transform: rotateY(180deg);
+
+}
+//tu bylo important
+.matched .front {
+  background: white;
+}
+
+.front {
+  width: 140px;
+  height: 100px;
+  position: absolute;
+  backface-visibility: hidden;
+  z-index: 2;
+  background-image: url("../img/resized/geobydzia.jpg");
+}
+
+.back {
+  min-width: 140px;
+  height: 100px;
+  position: absolute;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  background-color: #6589F9;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+
+/* ---------- Popup --------*/
+
+#popup {
+  color: white;
+  height: 341px;
+  width: 500px;
+  background: green;
+  box-shadow: rgba(0,0,0,0.2) 0 1px 3px;
+  border-radius: 5px;
+  position: absolute;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      p {
+        text-align: center;
+        font-size: 22px;
+        margin: 5px;
+      }
+
+      #play_again {
+        width: 150px;
+        height: 30px;
+        align-self: center;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        background-color: white;
+        color: green;
+        border-radius: 25px;
+        font-weight: bold;
+        border: none;
+      }
+
+      #play_again:hover {
+        cursor: pointer;
+      }
+
+      label {
+        text-align: center;
+        padding: 15px;
+      }
+
+      input {
+        width: 250px;
+        margin-left: 125px;
+      }
+
+      .surprise {
+        font-weight: bold;
+      }
+}
+
+
+
+/* ---------- Score board --------*/
+
+
+.score_board {
+  height: 500px;
+  width: 300px;
+  margin-left: 50px;
+}
+
+table {
+  width: 100%;
+  color: white;
+  background: green;
+  font-weight: bold;
+  border-collapse: collapse;
+
+    th, td {
+      text-align: center;
+      padding: 5px;
+    }
+
+    tbody tr:nth-child(odd) {
+      background: darkseagreen;
+    }
+}
+
+/* ---------- Button --------*/
+
+figure {
+  margin-left: 50px;
+  margin-bottom: 35px;
+}
+
+
+figure{
+  width:200px;
+  height:60px;
+  cursor:pointer;
+  perspective:500px;
+}
+
+figure div{
+  height:100%;
+  transform-style:preserve-3d;
+  transition:0.25s;
+ ;
+}
+figure:not(.no-hover):hover div{
+  transform:rotateX(-90deg);
+}
+
+span{
+  width:100%;
+  height:100%;
+  position:absolute;
+  box-sizing:border-box;
+  border:5px solid #fff;
+  font-family:'Source Sans Pro',sans-serif;
+  line-height:50px;
+  font-size:17pt;
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.start_btn1{
+  background: green;
+  color:#fff;
+  transform: translate3d(0, 0, 30px);
+}
+.start_btn{
+  color:white;
+  background:green;
+  transform: rotateX(90deg) translate3d(0, 0, 30px)
+}
