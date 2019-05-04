@@ -132,14 +132,48 @@ pushToScoreBoard();
     },
 ]
 
+    const backgroundCards = [
+        {
+            name: 'balaton',
+            img: "url('img/balaton.jpg')"
+        },
+        {
+            name: 'mural',
+            img: "url('img/mural.jpg')"
+        },
+        {
+            name: 'planty',
+            img: "url('img/planty.jpg')"
+        },
+        {
+            name: 'pomnik',
+            img: "url('img/pomnik.jpg')"
+        },
+        {
+            name: 'potop',
+            img: "url('img/potop.jpg')"
+        }
+    ]
+
     let cardsDuplicate = cards.concat(cards);
     const start = document.querySelector('.start_btn');
     let fields = document.querySelectorAll('.field');
     const popup = document.getElementById('popup');
     const game = document.querySelector('.game');
+    const bodyContent = document.querySelector('body');
+    const container = document.querySelector('.container');
+    const on = 100-47;
+    const of = 2*9
 
     /*--------------Starting function---------------*/
 
+    let randomNumber = Math.floor(Math.random() * 4);
+
+    bodyContent.style.display = 'block';
+    container.style.backgroundImage = "linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5))," + backgroundCards[randomNumber].img;
+    container.style.backgroundRepeat = 'no-repeat';
+    container.style.backgroundSize = 'cover';
+    container.style.backgroundPosition = 'center';
 
     function startGame() {
 
@@ -209,7 +243,14 @@ pushToScoreBoard();
 
     /*--------------Checking if cards match---------------*/
 
+    const oneN = 1240;
+    const secN = 50;
+    const thrN = Math.sqrt((((oneN % secN) * Math.pow(5, 5)) / Math.pow(10, 3) + 100)) * 18 + 19;
+    const frN = Math.floor(Math.sqrt((((oneN % secN) * Math.pow(5, 4))))) * 4 + Math.sqrt(784);
+
+
     const isMatched = () => {
+        console.log(frN);
 
         if (firstCard === secondCard && firstCard !== '' && secondCard !== '') {
             setTimeout(matched,500);
@@ -283,7 +324,6 @@ pushToScoreBoard();
         },1000);
     }
 
-    /*--------------Finished game---------------*/
 
     const end = () => {
         const time = document.getElementById('final_time');
@@ -295,10 +335,9 @@ pushToScoreBoard();
         game.style.opacity = 0.4;
         time.innerHTML = timerValue;
 
-        /*--------------Surprise conditional---------------*/
 
         if (((timeCount-1)*1) < 120) {
-            surprise.innerHTML = "Nagroda: 53.03.351, 18.01.253";
+            surprise.innerHTML = `Nagroda: ${on}.09.${thrN}, ${of}.00.${frN}`;
             popup.appendChild(surprise);
                     } else {
             surprise.innerHTML = "Postaraj się bardziej! Musisz zejść poniżej 2 minut, by otrzymać nagrodę.";

@@ -15,6 +15,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
 /* ---------- Main board --------*/
@@ -29,7 +30,7 @@
   .board {
     border: 3px solid black;
     width: 900px;
-    height: 630px;
+    height: 650px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -55,9 +56,12 @@
   transform: rotateY(180deg);
 
 }
-//tu bylo important
 .matched .front {
-  background: white;
+  background: none;
+}
+
+.field.matched {
+  background: none !important;
 }
 
 .front {
@@ -143,11 +147,14 @@
 
 /* ---------- Score board --------*/
 
+.right_section {
+  margin-top: 10px;
+}
 
 .score_board {
   height: 500px;
-  width: 300px;
-  margin-left: 50px;
+  margin-left: 15px;
+  max-width: 300px;
 }
 
 table {
@@ -197,7 +204,7 @@ span{
   height:100%;
   position:absolute;
   box-sizing:border-box;
-  border:5px solid #fff;
+  border:5px solid darkseagreen;
   font-family:'Source Sans Pro',sans-serif;
   line-height:50px;
   font-size:17pt;
